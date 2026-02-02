@@ -2,6 +2,8 @@ let health;
 let room;
 let correctDoor;
 let hoverDoor = -1; // -1 = none, 0 = left, 1 = right
+let flash = 0; // intensity of red flash
+
 
 function resetGame() {
   health = 3;
@@ -82,7 +84,15 @@ function drawGame() {
   drawDoors();
   drawHUD();
   drawHearts();
+
+  // RED FLASH EFFECT
+  if (flash > 0) {
+    fill(255, 0, 0, flash); // semi-transparent red
+    rect(0, 0, width, height);
+    flash -= 10; // fade out quickly
+  }
 }
+
 
 function drawHUD() {
   fill(255);
@@ -106,10 +116,10 @@ function gameMouse() {
     checkChoice(1);
   }
 }
-
 function checkChoice(choice) {
   if (choice !== correctDoor) {
     health--;
+    flash = 150; // trigger red flash
   }
 
   room++;
