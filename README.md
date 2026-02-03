@@ -19,3 +19,5 @@ Sidequest 3 for gbda 302
 Click to start and select a door. Choosing the wrong door will make you lose a heart. Win the game by getting at least one door right.
 
 ---
+## GenAI 
+GenAI was used to write the code.
